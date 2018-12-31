@@ -8,6 +8,8 @@ Much of the code remained exactly the same as the Jupyter Notebook linked above.
 If the request method to the homepage is GET, we display a file upload form. When an image file is uploaded, it is saved to the `static` folder, is prepared to be fed into our model to make a prediction and ultimately a prediction is made using `model.predict`. This value is returned and displayed on the web page along with the uploaded image.
 
 ## How to Use This App
-Clone or download this repo. In the app's folder, create a virtual environment with `virtualenv`, activate the environment. On Mac, this would be `source venv/bin/activate` and on Windows, this would be `venv/scripts/activate`. Once the environment is activated, you will need to install a few packages: TensorFlow, Keras, Pillow, and Flask. Create an empty folder called `static` where the uploaded image files will be kept. Then, run the app with `flask run`.
+Clone or download this repo. You will also need these packages: TensorFlow, Keras, Pillow and Flask. Create an empty folder called `static` where the uploaded image files will be kept. Then, run the app with `flask run`.
 
 Since the model was trained on images of glass or tables, you should ideally upload images of either glass or table and hopefully, the model will be able to predict accurately.
+
+**Optional** - In the app's folder, create a virtual environment with `virtualenv`, activate the environment. On Mac, this would be `source venv/bin/activate` and on Windows, this would be `venv\scripts\activate`. Once the environment is activated, you will need to install a few packages: TensorFlow, Keras, Pillow and Flask. 
