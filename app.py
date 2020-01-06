@@ -9,6 +9,7 @@ import classifier as clf
 import local_config as lc
 
 from flask import Flask, request, redirect, url_for, render_template
+from flask_bootstrap import Bootstrap
 from werkzeug import secure_filename
 
 # Setting up environment
@@ -17,6 +18,7 @@ if not os.path.isdir(lc.OUTPUT_DIR):
     os.mkdir(lc.OUTPUT_DIR)
 
 app = Flask(__name__)
+Bootstrap(app)
 app.config['UPLOAD_FOLDER'] = lc.OUTPUT_DIR
 
 @app.route('/', methods=['GET', 'POST'])
@@ -38,10 +40,12 @@ def upload_file():
             path_to_image = url_for('static', filename = filename)
             result = {
                 'output': output,
-                'path_to_image': path_to_image
+                'path_to_image': path_to_image,
+                'size': lc.SIZE
             }
             return render_template('show.html', result=result)
     return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
+    

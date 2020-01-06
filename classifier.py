@@ -22,7 +22,7 @@ def prepare_image(image_path):
     '''
     Loads image from the given `image_path` parameter
     '''
-    image = load_img(image_path, target_size = (224, 224))
+    image = load_img(image_path, target_size = (lc.SIZE, lc.SIZE))
     return np.expand_dims(preprocess_input(img_to_array(image)), axis=0)
 
 def make_prediction(filename):

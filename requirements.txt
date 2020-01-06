@@ -1,0 +1,5 @@
+flask == 1.0.2
+flask-bootstrap == 3.3.7.1
+werkzeug == 0.15.4
+numpy == 1.17.2
+tensorflow == 2.0.0
