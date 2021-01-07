@@ -10,7 +10,7 @@ import local_config as lc
 
 from flask import Flask, request, redirect, url_for, render_template
 from flask_bootstrap import Bootstrap
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 # Setting up environment
 if not os.path.isdir(lc.OUTPUT_DIR):
