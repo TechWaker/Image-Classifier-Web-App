@@ -1,25 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-# Importing libraries
 import tensorflow as tf
 import os
 import numpy as np
 import classifier as clf
 import local_config as lc
-
 from flask import Flask, request, redirect, url_for, render_template
 from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
+
 
 # Setting up environment
 if not os.path.isdir(lc.OUTPUT_DIR):
     print('Creating static folder..')
     os.mkdir(lc.OUTPUT_DIR)
 
+
 app = Flask(__name__)
 Bootstrap(app)
 app.config['UPLOAD_FOLDER'] = lc.OUTPUT_DIR
+
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -46,6 +47,6 @@ def upload_file():
             return render_template('show.html', result=result)
     return render_template('index.html')
 
+
 if __name__ == "__main__":
     app.run(debug=True)
-    
