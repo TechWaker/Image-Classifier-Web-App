@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-import tensorflow as tf
 import os
-import numpy as np
 import classifier as clf
 import local_config as lc
 from flask import Flask, request, redirect, url_for, render_template
 from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
 
-
 # Setting up environment
 if not os.path.isdir(lc.OUTPUT_DIR):
     print('Creating static folder..')
     os.mkdir(lc.OUTPUT_DIR)
-
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -38,7 +34,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             output = clf.make_prediction(filename)
-            path_to_image = url_for('static', filename = filename)
+            path_to_image = url_for('static', filename=filename)
             result = {
                 'output': output,
                 'path_to_image': path_to_image,
